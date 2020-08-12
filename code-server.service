@@ -1,0 +1,16 @@
+If you want to set code-server daemon execute, you should set code-server.service into `/usr/lib/systemd/system/code-server.service`
+
+```bash
+[Unit]
+Description=code-server
+After=network.target
+
+[Service]
+Type=exec
+Environment=HOME=/root
+ExecStart=/usr/bin/code-server
+Restart=always
+
+[Install]
+WantedBy=default.target
+```
